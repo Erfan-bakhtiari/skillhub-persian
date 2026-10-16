@@ -1,0 +1,60 @@
+/* Reuse the project's locally hosted IRANSans assets; Vite emits base-aware URLs. */
+@font-face {
+  font-family: 'IRANSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../../../../web/public/fonts/iransans/IRANSansWeb(FaNum).woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IRANSans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../../../../web/public/fonts/iransans/IRANSansWeb(FaNum)_Bold.woff2') format('woff2');
+}
+
+:root:lang(fa) {
+  --vp-font-family-base: 'IRANSans', Tahoma, sans-serif;
+}
+
+:lang(fa) .vp-doc p,
+:lang(fa) .vp-doc li {
+  line-height: 2;
+}
+
+:lang(fa) .VPHero .name,
+:lang(fa) .VPHero .text,
+:lang(fa) .vp-doc h1,
+:lang(fa) .vp-doc h2,
+:lang(fa) .vp-doc h3 {
+  letter-spacing: normal;
+}
+
+/* rtl:begin:ignore */
+/* Shell commands, code, paths and version strings stay LTR in both themes. */
+:lang(fa) .vp-doc pre,
+:lang(fa) .vp-doc code,
+:lang(fa) .vp-doc div[class*='language-'] {
+  direction: ltr;
+  text-align: left;
+  unicode-bidi: isolate;
+}
+
+:lang(fa) .vp-doc :not(pre) > code {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: baseline;
+  overflow-wrap: anywhere;
+}
+
+:lang(fa) .vp-doc pre .line {
+  unicode-bidi: plaintext;
+}
+
+:lang(fa) .vp-doc .header-anchor {
+  left: auto;
+  right: -0.87em;
+}
+/* rtl:end:ignore */

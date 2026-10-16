@@ -1,0 +1,43 @@
+title = "SkillHub publication secret scanning"
+[extend]
+useDefault = true
+
+# Each exception requires both the exact reviewed fixture/prose and its file.
+# No production configuration or test directory is exempted as a whole.
+[[allowlists]]
+description = "Upstream privacy prose, not a credential"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)docs/PRIVACY_AND_DATA_GOVERNANCE\.md$''']
+regexTarget = "line"
+regexes = ['''OAuth providers, S3-compatible storage, email services, monitoring systems,''']
+
+[[allowlists]]
+description = "Literal YOUR_TOKEN placeholders in upstream curl examples"
+targetRules = ["curl-auth-header"]
+condition = "AND"
+paths = ['''(^|/)docs/openclaw-integration(-en)?\.md$''']
+regexTarget = "match"
+regexes = ['''Bearer YOUR_(NEW_)?TOKEN''']
+
+[[allowlists]]
+description = "Deterministic fake RNG output asserted by the runtime test"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''(^|/)scripts/tests/runtime-secret-test\.sh$''']
+regexes = ['''^0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef$''']
+
+[[allowlists]]
+description = "Invalid abc123 private key canary in scanner redaction test"
+targetRules = ["private-key"]
+condition = "AND"
+paths = ['''(^|/)scanner/tests/test_skillhub_scanner_app\.py$''']
+regexTarget = "match"
+regexes = ['''-----BEGIN PRIVATE KEY-----\\nabc123\\n-----END PRIVATE KEY-----''']
+
+[[allowlists]]
+description = "Exact synthetic token used by two upstream redaction tests"
+targetRules = ["github-pat"]
+condition = "AND"
+paths = ['''(^|/)server/skillhub-(domain|app)/src/test/java/com/iflytek/skillhub/(domain/security/SecurityScanServiceTest|controller/portal/SecurityAuditControllerTest)\.java$''']
+regexes = ['''^ghp_012345678901234567890123456789012345$''']

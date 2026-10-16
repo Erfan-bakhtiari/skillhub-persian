@@ -1,0 +1,220 @@
+{
+  "rules": {
+    "COMMAND_INJECTION_EVAL": {
+      "title": "اجرای پویای کد",
+      "guidance": "استفاده از eval()، exec() و compile() را بررسی کنید؛ در صورت امکان از جایگزین‌هایی مانند ast.literal_eval() استفاده کنید."
+    },
+    "COMMAND_INJECTION_OS_SYSTEM": {
+      "title": "احتمال تزریق فرمان با ساخت رشته",
+      "guidance": "فرمان را با فهرست آرگومان‌ها اجرا کنید و ورودی کاربر را وارد رشتهٔ پوسته نکنید."
+    },
+    "COMMAND_INJECTION_SHELL_TRUE": {
+      "title": "اجرای فرمان از طریق پوسته",
+      "guidance": "در صورت امکان shell=False و فهرست آرگومان‌های صریح را به کار ببرید."
+    },
+    "COMMAND_INJECTION_USER_INPUT": {
+      "title": "اجرای ورودی کاربر با eval",
+      "guidance": "eval را از مسیر ورودی کاربر حذف و ورودی را اعتبارسنجی کنید."
+    },
+    "PATH_TRAVERSAL_OPEN": {
+      "title": "احتمال خروج مسیر از محدودهٔ مجاز",
+      "guidance": "مسیر نهایی را نرمال کنید و قرارداشتن آن در پوشهٔ مجاز را بررسی کنید."
+    },
+    "SQL_INJECTION_STRING_FORMAT": {
+      "title": "احتمال تزریق SQL",
+      "guidance": "از پرس‌وجوی پارامتری و placeholder استفاده کنید؛ مقدار کاربر را در متن SQL نچسبانید."
+    },
+    "SVG_EMBEDDED_SCRIPT": {
+      "title": "کد اجرایی در SVG",
+      "guidance": "برچسب script، رویدادها و نشانی‌های javascript: را از SVG حذف کنید."
+    },
+    "PDF_EMBEDDED_JAVASCRIPT": {
+      "title": "JavaScript یا عملیات خودکار در PDF",
+      "guidance": "عملیات JavaScript و شروع خودکار را بررسی و از سند ایستا استفاده کنید."
+    },
+    "GLOB_HIDDEN_FILE_TARGETING": {
+      "title": "الگوی دسترسی به فایل‌های مخفی",
+      "guidance": "فایل‌های مورد نیاز را صریح تعیین کنید و دسترسی ناخواسته به تنظیمات حساس را حذف کنید."
+    },
+    "FIND_EXEC_PATTERN": {
+      "title": "اجرای فرمان روی نتایج find",
+      "guidance": "کاربرد find -exec روی پوشهٔ نامطمئن را بررسی و فایل‌های هدف را صریح تعیین کنید."
+    },
+    "COMMAND_INJECTION_JS_CHILD_PROCESS": {
+      "title": "اجرای فرمان با child_process",
+      "guidance": "در صورت نیاز از execFile با آرگومان‌های صریح به جای رشتهٔ پوسته استفاده کنید."
+    },
+    "COMMAND_INJECTION_JS_FUNCTION_CONSTRUCTOR": {
+      "title": "ساخت پویای تابع یا اجرای رشته",
+      "guidance": "از ارجاع مستقیم تابع به جای new Function() یا رشتهٔ setTimeout و setInterval استفاده کنید."
+    },
+    "DATA_EXFIL_NETWORK_REQUESTS": {
+      "title": "ارسال درخواست به بیرون",
+      "guidance": "ضرورت درخواست شبکه و مقصدهای مجاز را بررسی و مستند کنید."
+    },
+    "DATA_EXFIL_HTTP_POST": {
+      "title": "احتمال ارسال داده با HTTP POST",
+      "guidance": "محتوای درخواست و مقصد آن را بررسی کنید تا دادهٔ حساس ارسال نشود."
+    },
+    "DATA_EXFIL_SOCKET_CONNECT": {
+      "title": "اتصال مستقیم به سرور بیرونی",
+      "guidance": "ضرورت اتصال socket و مقصد آن را بررسی و مستند کنید."
+    },
+    "DATA_EXFIL_SENSITIVE_FILES": {
+      "title": "خواندن فایل حساس",
+      "guidance": "دسترسی به فایل‌های اطلاعات ورود و تنظیمات حساس را حذف یا محدود کنید."
+    },
+    "DATA_EXFIL_ENV_VARS": {
+      "title": "خواندن یکجای متغیرهای محیطی",
+      "guidance": "فقط متغیرهای لازم را بخوانید؛ snapshot کل محیط می‌تواند رازها را افشا کند."
+    },
+    "DATA_EXFIL_BASE64_AND_NETWORK": {
+      "title": "کدگذاری Base64 همراه ارسال شبکه",
+      "guidance": "جریان داده از کدگذاری تا مقصد شبکه را بررسی و انتقال غیرضروری را حذف کنید."
+    },
+    "DATA_EXFIL_JS_NETWORK": {
+      "title": "درخواست شبکه در JavaScript یا TypeScript",
+      "guidance": "ضرورت درخواست و مقصدهای مجاز را بررسی و مستند کنید."
+    },
+    "DATA_EXFIL_JS_FS_ACCESS": {
+      "title": "دسترسی به فایل برای بررسی جریان داده",
+      "guidance": "عملیات فایل را همراه منابع حساس و مقصدهای خروجی شبکه بررسی کنید."
+    },
+    "SECRET_AWS_KEY": {
+      "title": "کلید دسترسی AWS در بسته",
+      "guidance": "کلید ثابت را حذف کنید و از متغیر محیطی یا نقش IAM استفاده کنید."
+    },
+    "SECRET_STRIPE_KEY": {
+      "title": "کلید Stripe در بسته",
+      "guidance": "کلید ثابت Stripe را حذف و از تنظیمات محیطی امن استفاده کنید."
+    },
+    "SECRET_GOOGLE_API": {
+      "title": "کلید API گوگل در بسته",
+      "guidance": "کلید ثابت را از محتوای بسته حذف کنید."
+    },
+    "SECRET_GITHUB_TOKEN": {
+      "title": "توکن GitHub در بسته",
+      "guidance": "توکن ثابت را از محتوای بسته حذف کنید."
+    },
+    "SECRET_JWT_TOKEN": {
+      "title": "توکن JWT در بسته",
+      "guidance": "توکن ثابت را از محتوای بسته حذف کنید."
+    },
+    "SECRET_PRIVATE_KEY": {
+      "title": "بلوک کلید خصوصی در بسته",
+      "guidance": "کلید خصوصی را از محتوای بسته حذف کنید."
+    },
+    "SECRET_PASSWORD_VAR": {
+      "title": "رمز یا راز ثابت در متغیر",
+      "guidance": "رازها را از متغیر محیطی یا مخزن امن راز دریافت کنید."
+    },
+    "SECRET_CONNECTION_STRING": {
+      "title": "اطلاعات ورود در رشتهٔ اتصال",
+      "guidance": "نام کاربری و رمز را از رشتهٔ اتصال داخل بسته حذف کنید."
+    },
+    "HARMFUL_CONTENT_EXPLICIT_INSTRUCTION": {
+      "title": "دستور ساخت قابلیت آسیب‌رسان",
+      "guidance": "دستورهای ساخت یا اجرای سرقت اطلاعات ورود و باج‌افزار را بررسی و حذف کنید."
+    },
+    "MALWARE_RANSOMWARE_IMPLEMENTATION_CHAIN": {
+      "title": "زنجیرهٔ رفتاری شبیه باج‌افزار",
+      "guidance": "منطق رمزگذاری انبوه و اخاذی را حذف و بسته را از نظر بدافزار بررسی کنید."
+    },
+    "OBFUSCATION_BASE64_LARGE": {
+      "title": "مسیر اجرای کد کدگذاری‌شده",
+      "guidance": "محتوای رمزگشایی‌شده را صریح بررسی و اجرای مبهم آن را حذف کنید."
+    },
+    "OBFUSCATION_HEX_BLOB": {
+      "title": "بلوک بزرگ کدگذاری هگز",
+      "guidance": "علت کدگذاری را بررسی و در صورت امکان از کد خوانا استفاده کنید."
+    },
+    "OBFUSCATION_XOR_ENCODING": {
+      "title": "کاربرد XOR در مسیر رمزگشایی یا اجرا",
+      "guidance": "تبدیل‌ها را خوانا و کاربرد ضروری XOR را مستند کنید."
+    },
+    "OBFUSCATION_BINARY_FILE": {
+      "title": "فایل اجرایی باینری در بسته",
+      "guidance": "ضرورت فایل باینری را بررسی و در صورت امکان از اسکریپت خوانا استفاده کنید."
+    },
+    "PROMPT_INJECTION_IGNORE_INSTRUCTIONS": {
+      "title": "تلاش برای کنارگذاشتن دستورهای قبلی",
+      "guidance": "دستورهایی را که رفتار سامانه را بازنویسی می‌کنند بررسی و حذف کنید."
+    },
+    "PROMPT_INJECTION_UNRESTRICTED_MODE": {
+      "title": "تلاش برای فعال‌کردن حالت بدون محدودیت",
+      "guidance": "دستورهای تغییر حالت با هدف دورزدن کنترل‌ها را حذف کنید."
+    },
+    "PROMPT_INJECTION_BYPASS_POLICY": {
+      "title": "تلاش برای دورزدن سیاست‌ها",
+      "guidance": "دستورهای کنارگذاشتن سیاست و محدودیت‌ها را بررسی و حذف کنید."
+    },
+    "PROMPT_INJECTION_REVEAL_SYSTEM": {
+      "title": "درخواست افشای دستور یا تنظیمات سامانه",
+      "guidance": "درخواست‌های افشای جزئیات داخلی سامانه را بررسی و حذف کنید."
+    },
+    "PROMPT_INJECTION_CONCEALMENT": {
+      "title": "تلاش برای پنهان‌کردن عملیات از کاربر",
+      "guidance": "کاربرد skill و عملیات آن را شفاف نگه دارید."
+    },
+    "RESOURCE_ABUSE_INFINITE_LOOP": {
+      "title": "حلقه بدون شرط خروج روشن",
+      "guidance": "شرط خروج و سقف اجرای مناسب تعریف کنید."
+    },
+    "RESOURCE_ABUSE_FORK_BOMB": {
+      "title": "الگوی ساخت بی‌رویهٔ پردازه",
+      "guidance": "منطق fork bomb را حذف کنید."
+    },
+    "RESOURCE_ABUSE_LARGE_ALLOCATION": {
+      "title": "تخصیص حافظهٔ بسیار بزرگ",
+      "guidance": "مصرف حافظه را محدود و داده را بخش‌بندی کنید."
+    },
+    "HIDDEN_FILE_WITH_CODE": {
+      "title": "کد اجرایی در فایل مخفی",
+      "guidance": "فایل اجرایی را آشکار و ضرورت نگهداری آن را بررسی کنید."
+    },
+    "TOOL_ABUSE_SYSTEM_PACKAGE_INSTALL": {
+      "title": "نصب بستهٔ سیستمی با دسترسی بالا",
+      "guidance": "در صورت امکان نصب در سطح کاربر و بدون sudo را به کار ببرید؛ نیاز سیستمی را مستند کنید."
+    },
+    "TOOL_ABUSE_UNTRUSTED_PACKAGE_SOURCE": {
+      "title": "نصب بسته از منبع نامطمئن",
+      "guidance": "مخزن معتبر و نسخهٔ مشخص را به نصب مستقیم از URL یا VCS ترجیح دهید."
+    },
+    "TOOL_ABUSE_SYSTEM_MODIFICATION": {
+      "title": "تغییر مجوز یا تنظیمات سیستم",
+      "guidance": "فرمان‌های تغییر تنظیمات سیستم را بررسی و موارد غیرضروری را حذف کنید."
+    },
+    "VETTER_CURL_WGET_EXTERNAL": {
+      "title": "دریافت یا ارسال شبکه با curl یا wget",
+      "guidance": "مقصد و ضرورت فرمان را بررسی کنید."
+    },
+    "VETTER_CREDENTIAL_REQUEST": {
+      "title": "درخواست اطلاعات ورود از کاربر",
+      "guidance": "برای احراز هویت از تنظیمات محیطی امن استفاده کنید."
+    },
+    "VETTER_AGENT_MEMORY_ACCESS": {
+      "title": "دسترسی به حافظه یا هویت عامل",
+      "guidance": "دسترسی skill به فایل‌های حافظه، هویت و تنظیمات عامل را بررسی و حذف کنید."
+    },
+    "VETTER_SYSTEM_FILE_WRITE": {
+      "title": "نوشتن بیرون فضای کاری",
+      "guidance": "نوشتن فایل را به فضای کاری یا مسیر موقت مجاز محدود کنید."
+    },
+    "VETTER_SILENT_INSTALL": {
+      "title": "نصب وابستگی هنگام اجرا",
+      "guidance": "وابستگی‌ها را در فایل مربوط مانند requirements.txt یا package.json اعلام کنید."
+    },
+    "VETTER_IP_ADDRESS_CALL": {
+      "title": "درخواست مستقیم به IP",
+      "guidance": "برای ردیابی مقصد، در صورت امکان از نام دامنه استفاده کنید."
+    },
+    "VETTER_BROWSER_DATA_ACCESS": {
+      "title": "دسترسی به دادهٔ مرورگر",
+      "guidance": "دسترسی به کوکی، نشست و ذخیره‌ساز مرورگر را بررسی و حذف کنید."
+    }
+  },
+  "scanFailures": {
+    "unavailable": "اسکنر تا پایان مهلت تعیین‌شده در دسترس نشد. پس از رفع مشکل سرویس، اسکن را دوباره اجرا کنید.",
+    "failed": "اسکن امنیتی پس از تلاش‌های خودکار ناموفق بود. دوباره اسکن کنید یا با مدیر تماس بگیرید."
+  }
+}
